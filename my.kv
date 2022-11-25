@@ -1,0 +1,465 @@
+<CustLabel@Label>:
+    color: .1, .40, .2, 1
+<Reg_or_log>
+    name: "registration_or_login"
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            color:.800, .300, .500
+            cols: 2
+            CustLabel:
+                color:.20, .25, .80
+                text: "Registration"
+                size_hint_x: .80
+                font_size:30
+
+            CustLabel:
+                color:.20, .25, .80
+                text: "Login"
+                size_hint_x: .80
+                font_size:30
+
+            CheckBox:
+                color:.20, .25, .80
+                on_active: root.checkbox_click(self, self.active)
+                on_active: app.root.current = "start"
+                size_hint_x: 100
+
+            CheckBox:
+                color:.0, .0, .0
+                on_active: root.checkbox_click(self, self.active)
+                on_active: app.root.current = "login"
+                size_hint_x: 100
+<Start>
+    name: "start"
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            color:.800, .300, .500
+            cols: 2
+            CustLabel:
+                color:.20, .25, .80
+                text: "Passenger"
+                size_hint_x: .80
+                font_size:30
+
+            CustLabel:
+                color:.20, .25, .80
+                text: "Driver"
+                size_hint_x: .80
+                font_size:30
+
+            CheckBox:
+                color:.20, .25, .80
+                on_active: root.checkbox_click(self, self.active)
+                on_active: app.root.current = "registration_passanger"
+                size_hint_x: 100
+
+            CheckBox:
+                color:.0, .0, .0
+                on_active: root.checkbox_click(self, self.active)
+                on_active: app.root.current = "registration_driver"
+                size_hint_x: 100
+
+
+
+<Reg_driver>:
+    name: "registration_driver"
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            cols: 2
+            Label:
+                size_hint_x: 1
+                text: "FIO "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+
+            Label:
+                size_hint_x: 1
+                text: "Team "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+            Label:
+                size_hint_x: 1
+                text: "Login: "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+
+            Label:
+                size_hint_x: 1
+                text: "Password: "
+
+            TextInput:
+                size_hint_x: 1
+                id: passw
+                multiline: False
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .5
+            text: "Submit"
+            on_release:
+                app.root.current = "driver_menu"
+                root.manager.transition.direction = "left"
+
+<Reg_passanger>:
+    name: "registration_passanger"
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            cols: 2
+
+            Label:
+                size_hint_x: 1
+                text: "FIO "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+
+            Label:
+                size_hint_x: 1
+                text: "Age "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+            Label:
+                size_hint_x: 1
+                text: "Weight "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+            Label:
+                size_hint_x: 1
+                text: "Muscle percentage % "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+            Label:
+                size_hint_x: 1
+                text: "Login: "
+
+            TextInput:
+                size_hint_x: 1
+                id: login
+                multiline: False
+
+            Label:
+                size_hint_x: 1
+                text: "Password: "
+
+            TextInput:
+                size_hint_x: 1
+                id: passw
+                multiline: False
+
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .5
+            text: "Submit"
+            on_release:
+                app.root.current = "passanger_menu"
+                root.manager.transition.direction = "left"
+<Login>:
+    name: "login"
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Login: "
+
+            TextInput:
+                id: login
+                multiline: False
+
+            Label:
+                text: "Password: "
+
+            TextInput:
+                id: passw
+                multiline: False
+            Button:
+                text: "Go Back"
+                on_release:
+                    app.root.current = "start"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Submit"
+                on_release:
+                    app.root.current = "passanger_menu"
+                    root.manager.transition.direction = "left"
+
+<Driver_menu>:
+    name: "driver_menu"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint: 1, .1
+            text: "Uber"
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Get order"
+
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Show rating"
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Show reviewes"
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Show order history"
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Change my data"
+            on_release:
+                app.root.current = "change_driver_data"
+                root.manager.transition.direction = "right"
+
+<Change_driver_data>:
+    name: "change_driver_data"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint: 1, .5
+            text: "Changing data"
+        GridLayout:
+            cols: 4
+            Label:
+                text: "Car"
+            Label:
+                text: "Car number"
+            Label:
+                text: "Password"
+            Label:
+                text: "Phone number"
+            TextInput:
+                id: login
+                multiline: False
+            TextInput:
+                id: login
+                multiline: False
+            TextInput:
+                id: login
+                multiline: False
+            TextInput:
+                id: login
+                multiline: False
+            Button:
+                pos_hint: {'center_x':0.25, 'center_y':0.25}
+                size_hint_x: .5
+                size_hint_y: .2
+                text: "Go Back"
+                on_release:
+                    app.root.current = "driver_menu"
+                    root.manager.transition.direction = "left"
+            Button:
+                pos_hint: {'center_x':0.75, 'center_y':0.75}
+                size_hint_x: .5
+                size_hint_y: .2
+                text: "Save"
+                on_release:
+                    app.root.current = "driver_menu"
+                    root.manager.transition.direction = "right"
+
+<Passanger_menu>:
+    name: "passanger_menu"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint: 1, .1
+            text: "Uber"
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Make order"
+            on_release:
+                app.root.current = "make_order"
+                root.manager.transition.direction = "right"
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Show reviewes"
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Show order history"
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Change my data"
+            on_release:
+                app.root.current = "change_passanger_data"
+                root.manager.transition.direction = "right"
+
+<Change_passanger_data>:
+    name: "change_passanger_data"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint: 1, .5
+            text: "Changing data"
+        GridLayout:
+            cols: 4
+            Label:
+                text: "Login"
+            Label:
+                text: "Password"
+            Label:
+                text: "Email"
+            Label:
+                text: "Phone number"
+            TextInput:
+                id: login
+                multiline: False
+            TextInput:
+                id: login
+                multiline: False
+            TextInput:
+                id: login
+                multiline: False
+            TextInput:
+                id: login
+                multiline: False
+            Button:
+                pos_hint: {'center_x':0.25, 'center_y':0.25}
+                size_hint_x: .5
+                size_hint_y: .2
+                text: "Go Back"
+                on_release:
+                    app.root.current = "passanger_menu"
+                    root.manager.transition.direction = "left"
+            Button:
+                pos_hint: {'center_x':0.75, 'center_y':0.75}
+                size_hint_x: .5
+                size_hint_y: .2
+                text: "Save"
+                on_release:
+                    app.root.current = "passanger_menu"
+                    root.manager.transition.direction = "right"
+
+<Make_order>:
+    name: "make_order"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint: 1, .5
+            text: "Making order"
+        GridLayout:
+            cols: 5
+            Label:
+                text: "Time"
+            Label:
+                text: "Date"
+            Label:
+                text: "Tariff"
+            Label:
+                text: "Comment"
+            Label:
+                text: "Payment method"
+            TextInput:
+                id: login
+                multiline: False
+
+            TextInput:
+                size_hint: 1, .5
+                id: login
+                multiline: False
+            TextInput:
+                size_hint: 1, .5
+                id: login
+                multiline: False
+            TextInput:
+                size_hint: 1, .5
+                id: login
+                multiline: False
+            TextInput:
+                size_hint: 1, .5
+                id: login
+                multiline: False
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Back"
+            on_release:
+                app.root.current = "passanger_menu"
+                root.manager.transition.direction = "right"
+
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Lets go"
+            on_release:
+                app.root.current = "looking_for_car"
+                root.manager.transition.direction = "right"
+
+<Looking_for_car>:
+    name: "looking_for_car"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint: 1, .5
+            text: "Looking for a car..."
+        Button:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            size_hint_x: .5
+            size_hint_y: .2
+            text: "Back"
+            on_release:
+                app.root.current = "passanger_menu"
+                root.manager.transition.direction = "right"
+
+
+
+
+
